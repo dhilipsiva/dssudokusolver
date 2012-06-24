@@ -6,6 +6,16 @@ find DS Sudoku Solver on facebook, [HERE](https://apps.facebook.com/dssudokusolv
 *DS Sudoku solver* is a mini web application that solves the sudoku puzzle.
 
 
+##Contents:
+
+This repository consists of the following files:
+
+- main.py - The main python file
+- views.py - The Request Handlers
+- routes.py - URL Maps
+- templates folder - All the templates 
+
+
 
 
 ##Technologies Used:
