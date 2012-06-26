@@ -237,6 +237,36 @@
                 
             </div>
         </div>
-    </div>
+		<div class = "row">
+			<div class = "span3 offset2">
+				<button class="btn btn-primary btn-large" type="submit" id = "solvebutton">
+					Solve ...
+				</button>
+			</div>
+		</div>
+	</div>
+	<script>
+		document.getElementById("solvebutton").onclick = function(){
+			var sudoku= new Array();
+			for(i=0;i<9;i++){ 
+				sudoku[i] = new Array();
+				for(j=0;j<9;j++){
+					sudoku[i][j] = document.getElementById(i.toString()+j.toString()).value;
+				}
+			}
+			replyString = $.ajax({
+				url: "/solution?q="sudoku.toString(),
+				context: document.body,
+				async:false
+			});
+			replyArray = replyString.split(",");
+			count = 0;
+			for(i=0;i<9;i++){ 
+				for(j=0;j<9;j++){
+					document.getElementById(i.toString()+j.toString()).value = replyArray[count++];
+				}
+			}
+		}
+	</script>
 </body>
 </html>

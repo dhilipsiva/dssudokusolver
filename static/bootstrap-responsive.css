@@ -835,6 +835,7 @@ input[type="color"],
       -ms-transition: border linear 0.2s, box-shadow linear 0.2s;
        -o-transition: border linear 0.2s, box-shadow linear 0.2s;
           transition: border linear 0.2s, box-shadow linear 0.2s;
+  text-align: center;
 }
 
 textarea:focus,
