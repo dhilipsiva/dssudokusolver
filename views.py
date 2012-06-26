@@ -67,10 +67,7 @@ class TOSHandler(BaseHandler):
 class SolutionHandler(webapp2.RequestHandler):
 
     def get(self):
-        self.render_response('index.html', **context)
-
-    def post(self):
-        self.render_response('index.html', **context)
+        print self.request.get('q')
 
 
 #Fallback for page not found

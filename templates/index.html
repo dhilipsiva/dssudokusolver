@@ -247,6 +247,8 @@
 	</div>
 	<script>
 		document.getElementById("solvebutton").onclick = function(){
+		
+			//get the sudoku in an array
 			var sudoku= new Array();
 			for(i=0;i<9;i++){ 
 				sudoku[i] = new Array();
@@ -254,13 +256,19 @@
 					sudoku[i][j] = document.getElementById(i.toString()+j.toString()).value;
 				}
 			}
-			replyString = $.ajax({
-				url: "/solution?q="sudoku.toString(),
+			
+			//convert sudoku array in to a string and post it back to the server for processing
+			theReply = $.ajax({
+				url: "/solution?q="+sudoku.toString(),
 				context: document.body,
 				async:false
 			});
-			replyArray = replyString.split(",");
+			
+			//split the reply string to array
+			replyArray = theReply.responseText.split(",");
 			count = 0;
+			
+			//add the solution to the puzzle
 			for(i=0;i<9;i++){ 
 				for(j=0;j<9;j++){
 					document.getElementById(i.toString()+j.toString()).value = replyArray[count++];
