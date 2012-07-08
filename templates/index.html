@@ -8,7 +8,8 @@
     <meta name="description" content="DhilipSiva Sudoku Solver">
     <meta name="author" content="DhilipSiva">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-    <link href="../static/bootstrap.css" rel="stylesheet">
+    <a href="../static/bootstrap.css" rel="stylesheet">
+	<script type="text/javascript" src="../static/app.js"></script>
     <style>
         body {
             padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
@@ -246,35 +247,27 @@
 		</div>
 	</div>
 	<script>
-		document.getElementById("solvebutton").onclick = function(){
-		
-			//get the sudoku in an array
-			var sudoku= new Array();
-			for(i=0;i<9;i++){ 
-				sudoku[i] = new Array();
-				for(j=0;j<9;j++){
-					sudoku[i][j] = document.getElementById(i.toString()+j.toString()).value;
-				}
-			}
+		$(document).ready(function(){
+			$("#solvebutton").click(function(){
 			
-			//convert sudoku array in to a string and post it back to the server for processing
-			theReply = $.ajax({
-				url: "/solution?q="+sudoku.toString(),
-				context: document.body,
-				async:false
+				//get the sudoku in an array
+				var sudoku= new Array();
+				for(i=0;i<9;i++){ 
+					sudoku[i] = new Array();
+					for(j=0;j<9;j++){
+						sudoku[i][j] = document.getElementById(i.toString()+j.toString()).value;
+					}
+				}
+				
+				solvedSudoku = DSSolve(sudoku);
+				//add the solution to the puzzle
+				for(i=0;i<9;i++){ 
+					for(j=0;j<9;j++){
+						document.getElementById(i.toString()+j.toString()).value = solvedSudoku[i][j];
+					}
+				}
 			});
-			
-			//split the reply string to array
-			replyArray = theReply.responseText.split(",");
-			count = 0;
-			
-			//add the solution to the puzzle
-			for(i=0;i<9;i++){ 
-				for(j=0;j<9;j++){
-					document.getElementById(i.toString()+j.toString()).value = replyArray[count++];
-				}
-			}
-		}
+		});
 	</script>
 </body>
 </html>

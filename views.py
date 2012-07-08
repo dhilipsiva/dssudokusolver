@@ -63,13 +63,6 @@ class TOSHandler(BaseHandler):
         self.render_response('tos.html', **context)
 
 
-#Solution URL
-class SolutionHandler(webapp2.RequestHandler):
-
-    def get(self):
-        print self.request.get('q')
-
-
 #Fallback for page not found
 class LastHandler(BaseHandler):
 
