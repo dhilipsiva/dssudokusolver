@@ -8,8 +8,8 @@
     <meta name="description" content="DhilipSiva Sudoku Solver">
     <meta name="author" content="DhilipSiva">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-    <a href="../static/bootstrap.css" rel="stylesheet">
-	<script type="text/javascript" src="../static/app.js"></script>
+    <a href="static/bootstrap.css" rel="stylesheet">
+	<script type="text/javascript" src="static/app.js"></script>
     <style>
         body {
             padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
@@ -18,7 +18,7 @@
             max-width: 30px;
         }
     </style>
-    <link href="../static/bootstrap-responsive.css" rel="stylesheet">
+    <link href="static/bootstrap-responsive.css" rel="stylesheet">
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 <input type="text" class="input-small">ments -->
     <!--[if lt IE 9]>
@@ -27,8 +27,9 @@
 </head>
 
 <body>
-    <a href="https://github.com/dhilipsiva/dssudokusolver" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"></a>
-    <div class="container">
+    <div class="container"><a href="https://github.com/dhilipsiva/dssudokusolver" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"></a>
+    
+		<h1>DS Sudoku Solver</h1>
         <div class="row">
             <div class="span9">
                 <div class="row">
@@ -241,13 +242,32 @@
 		<div class = "row">
 			<div class = "span3 offset2">
 				<button class="btn btn-primary btn-large" type="submit" id = "solvebutton">
-					Solve ...
+					Solve :-)
 				</button>
+			</div>
+			<div class = "span3">
+				<button class="btn btn-large btn-danger pull-right" type="submit" id = "clearbutton">
+					Clear :-P
+				</button>
+			</div>
+		</div>
+		<div class="row">
+			<div class="span6">
+				<p>Please report issues <a href="https://github.com/dhilipsiva/dssudokusolver/issues">HERE</a></p>
+				<p>Mail to dhilipsiva@gmail.com</p>
+				<p>Fork me on <a href="https://github.com/dhilipsiva/dssudokusolver">github</a></p>
 			</div>
 		</div>
 	</div>
 	<script>
 		$(document).ready(function(){
+			$("#clearbutton").click(function(){
+				for(i=0;i<9;i++){ 
+					for(j=0;j<9;j++){
+						document.getElementById(i.toString()+j.toString()).value = "";
+					}
+				}
+			});
 			$("#solvebutton").click(function(){
 			
 				//get the sudoku in an array
@@ -261,10 +281,16 @@
 				
 				solvedSudoku = DSSolve(sudoku);
 				//add the solution to the puzzle
-				for(i=0;i<9;i++){ 
-					for(j=0;j<9;j++){
-						document.getElementById(i.toString()+j.toString()).value = solvedSudoku[i][j];
+				
+				if(solvedSudoku != null){
+					for(i=0;i<9;i++){ 
+						for(j=0;j<9;j++){
+							document.getElementById(i.toString()+j.toString()).value = solvedSudoku[i][j];
+						}
 					}
+				}
+				else{
+					alert("Sorry :-( I was not able to solve your puzzle!\nPlease report to dhilipsiva@gmail.com")
 				}
 			});
 		});

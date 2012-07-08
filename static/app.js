@@ -94,8 +94,11 @@ InitEmptyArray = function(){
 
 DSSolve = function(Qsudoku){
 	comp_ary = InitEmptyArray(); //Complementary Array
+	IterationMax = 5000;
 	
 	while(true){
+		IterationMax -= 1;
+		
 		comp_ary = CleanElements(comp_ary, Qsudoku);
 		console.log(comp_ary);
 		
@@ -104,6 +107,10 @@ DSSolve = function(Qsudoku){
 		
 		if(IsThereNullElement(Qsudoku)){
 			return Qsudoku;
+		}
+		
+		if(IterationMax == 0){
+			return null;
 		}
 	}
 }

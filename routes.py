@@ -12,7 +12,6 @@ email : dhilipsiva@gmail.com
 Phone :(+91) 81 97 98 53 97
 '''
 import views
-import api
 
 Routes = [
             ('/', views.MainHandler),
