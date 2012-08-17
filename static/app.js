@@ -94,13 +94,20 @@ InitEmptyArray = function(){
 
 DSSolve = function(Qsudoku){
 	comp_ary = InitEmptyArray(); //Complementary Array
+	window.comp_ary_old = comp_ary;
 	IterationMax = 5000;
 	
 	while(true){
 		IterationMax -= 1;
-		
 		comp_ary = CleanElements(comp_ary, Qsudoku);
 		console.log(comp_ary);
+		
+		if(window.comp_ary_old == comp_ary){
+			//implement this.
+		}
+		else{
+			window.comp_ary_old = comp_ary;
+		}
 		
 		Qsudoku = FindElements(comp_ary, Qsudoku);
 		//console.log(Qsudoku);
