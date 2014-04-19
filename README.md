@@ -27,6 +27,3 @@ This repository consists of the following files:
 
 - Python, [WebApp2](http://webapp-improved.appspot.com/) framework on google's appengine
 - [twitter's bootstrap](http://twitter.github.com/bootstrap "Twitter Bootstrap") to spice-up the application
-
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/dhilipsiva/dssudokusolver/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
-
