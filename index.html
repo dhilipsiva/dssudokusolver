@@ -10,6 +10,16 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
         <script type="text/javascript" src="static/ds-sudoku-solver.js"></script>
         <script type="text/javascript" src="static/app.js"></script>
+        <script>
+            (function(d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s); js.id = id;
+                js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.4&appId=287176428046806";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+        </script>
+
         <style>
             body {
                 padding-top: 60px;
@@ -227,6 +237,10 @@
                         </div>
                     </div>
                 </div>
+                <div class="span3">
+                    <div class="fb-like" data-href="https://facebook.com/dssudokusolver" data-layout="standard" data-action="like" data-show-faces="true" data-share="true">
+                    </div>
+                </div>
             </div>
             <div class = "row">
                 <div class = "span3 offset2">
@@ -246,19 +260,6 @@
                     <p>Mail to dhilipsiva@gmail.com</p>
                     <p>Fork me on <a href="https://github.com/dhilipsiva/dssudokusolver">github</a></p>
                 </div>
-            </div>
-            <div class="row">
-                <div class="fb-like" data-href="https://facebook.com/dssudokusolver" data-layout="standard" data-action="like" data-show-faces="true" data-share="true">
-                </div>
-                <script>
-                    (function(d, s, id) {
-                        var js, fjs = d.getElementsByTagName(s)[0];
-                        if (d.getElementById(id)) return;
-                        js = d.createElement(s); js.id = id;
-                        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.4&appId=287176428046806";
-                        fjs.parentNode.insertBefore(js, fjs);
-                    }(document, 'script', 'facebook-jssdk'));
-                </script>
             </div>
         </div>
     </body>
